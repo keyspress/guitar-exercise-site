@@ -1,0 +1,40 @@
+:root {
+  --main-bg-color: rgb(223, 225, 235);
+  --element-bg-color: rgb(71, 83, 143);
+  --text-color-dark: rgb(53, 53, 56);
+  --text-color-light: rgb(197, 203, 230);
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: var(--main-bg-color);
+  color: var(--text-color-dark);
+}
+.navbar {
+  font-size: 25px;
+  background-color: var(--element-bg-color);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.navbar a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  margin: 10px;
+}
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+}
+.navbar li {
+  margin: 10px;
+}
+.navbar li a:hover {
+  color: var(--text-color-dark);
+  text-decoration: underline;
+}
