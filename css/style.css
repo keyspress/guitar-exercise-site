@@ -1,6 +1,26 @@
 :root {
-  --main-bg-color: rgb(223, 225, 235);
+  --main-bg-color: rgb(62, 70, 84);
+  --element-bg-color-darkest: rgb(22, 33, 91);
+  --element-bg-color-darker: rgb(45, 57, 119);
   --element-bg-color: rgb(71, 83, 143);
+  --element-bg-color-lighter: rgb(108, 117, 170);
+  --element-bg-color-lightest: rgb(157, 165, 204);
+  --element-bg-color-opacity-zero9: rgba(71, 83, 143, 0.9);
+  --element-bg-color-secondary-darkest: rgb(44, 20, 91);
+  --element-bg-color-secondary-darker: rgb(69, 43, 119);
+  --element-bg-color-secondary: rgb(94, 69, 143);
+  --element-bg-color-secondary-lighter: rgb(127, 105, 170);
+  --element-bg-color-secondary-lightest: rgb(172, 156, 203);
+  --element-bg-color-secondary-2-darkest: rgb(134, 119, 18);
+  --element-bg-color-secondary-2-darker: rgb(174, 158, 50);
+  --element-bg-color-secondary-2: rgb(209, 193, 89);
+  --element-bg-color-secondary-2-lighter: rgb(248, 235, 144);
+  --element-bg-color-secondary-2-lightest: rgb(255, 246, 189);
+  --element-bg-color-complement-darkest: rgb(134, 100, 18);
+  --element-bg-color-complement-darker: rgb(174, 138, 50);
+  --element-bg-color-complement: rgb(209, 174, 89);
+  --element-bg-color-complement-lighter: rgb(248, 218, 144);
+  --element-bg-color-complement-lightest: rgb(255, 236, 189);
   --text-color-dark: rgb(53, 53, 56);
   --text-color-light: rgb(197, 203, 230);
 }
@@ -11,18 +31,23 @@
 }
 body {
   font-family: 'Mukta', sans-serif;
+  /* background-color: black; */
   background-color: var(--main-bg-color);
   color: var(--text-color-dark);
 }
+/* NAVBAR */
 .navbar {
   /* font-size: 25px; */
   background-color: var(--element-bg-color);
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
+  z-index: 2;
   min-height: 8vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-bottom-left-radius: 1%;
+  border-bottom-right-radius: 1%;
 }
 .logo {
   letter-spacing: 10px;
@@ -47,8 +72,10 @@ body {
   text-decoration: underline;
 }
 .menu-burger {
+  padding-top: 7px;
   display: none;
   cursor: pointer;
+  z-index: 3;
 }
 .menu-burger div {
   width: 25px;
@@ -57,6 +84,7 @@ body {
   margin: 5px;
   border-radius: 20%;
   transition: all 0.4s ease-in-out;
+  box-shadow: 2px 2px 3px var(--text-color-dark);
 }
 @media screen and (max-width: 768px) {
   body {
@@ -70,10 +98,12 @@ body {
   }
   .nav-links {
     position: absolute;
+    z-index: 1;
     right: 0px;
     height: 90vh;
     top: 10vh;
-    background-color: var(--element-bg-color);
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    background-color: var(--element-bg-color-opacity-zero9);
     flex-direction: column;
     align-items: center;
     transform: translateX(100%);
@@ -86,11 +116,9 @@ body {
     display: block;
   }
 }
-
 .nav-active {
   transform: translateX(0%);
 }
-
 @keyframes navLinkFade {
   from {
     opacity: 0;
@@ -101,7 +129,6 @@ body {
     transform: translateX(0px);
   }
 }
-
 .toggle .line1 {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -110,4 +137,53 @@ body {
 }
 .toggle .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
+}
+/* SPLASH PAGE */
+.splash-body {
+  overflow: hidden;
+}
+.splash-main {
+  width: 80vw;
+  height: 88vh;
+  margin: auto;
+  z-index: -1;
+  background-image: linear-gradient(
+    to bottom,
+    var(--element-bg-color),
+    var(--element-bg-color-secondary-2)
+  );
+  text-align: center;
+}
+.splash-header {
+  padding-top: 18vh;
+}
+.splash-title {
+  font-size: 8vw;
+  letter-spacing: 10px;
+  text-shadow: 2px 2px 3px var(--text-color-light);
+}
+.splash-description {
+  letter-spacing: 3px;
+  color: var(--text-color-light);
+}
+.footer {
+  position: absolute;
+  left: 0;
+  /* top: 50vh; */
+  bottom: 0;
+  width: 100vw;
+  min-height: 10vh;
+  background-color: var(--element-bg-color);
+  /* border-top-left-radius: 5%;
+  border-top-right-radius: 5%; */
+  /* border-radius: 5%; */
+}
+@media screen and (max-width: 768px) {
+  .splash-title {
+    font-size: 7vw;
+    background-color: rgba(197, 203, 230, 0.3);
+  }
+  .splash-description {
+    font-size: 4vw;
+  }
 }
